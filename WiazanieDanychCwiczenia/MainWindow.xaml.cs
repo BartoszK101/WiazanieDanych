@@ -16,7 +16,7 @@ namespace WiazanieDanychCwiczenia
             InitializeComponent();
             DataContext = this;
 
-            
+           
             Rozmiar = 12;
             Kolor = Brushes.Black;
             Tekst = "Kolejny test wiązania danych";
@@ -59,12 +59,12 @@ namespace WiazanieDanychCwiczenia
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-       
+        
         private void ComboKolor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (ComboKolor.SelectedItem is ComboBoxItem selectedItem)
             {
-               
+                
                 string colorName = selectedItem.Content.ToString();
 
                 

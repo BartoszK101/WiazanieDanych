@@ -21,7 +21,7 @@
                 Minimum="10" Maximum="50" Value="{Binding Rozmiar}" 
                 TickFrequency="2" IsSnapToTickEnabled="True" />
 
-        
+       
         <Label Content="Kolor:" Grid.Row="1" Grid.Column="0" Margin="5" />
         <ComboBox x:Name="ComboKolor" Grid.Row="1" Grid.Column="1" Margin="5"
                   SelectionChanged="ComboKolor_SelectionChanged" Width="120">
@@ -34,12 +34,13 @@
         
         <Label Content="Tekst:" Grid.Row="2" Grid.Column="0" Margin="5" />
         <TextBox x:Name="TextTekst" Grid.Row="2" Grid.Column="1" Margin="5"
-                 Text="{Binding Tekst}" />
+                 Text="{Binding Tekst, UpdateSourceTrigger=PropertyChanged}" />
 
-        
-        <TextBlock Grid.Row="3" Grid.ColumnSpan="2" Margin="5" Text="{Binding Tekst}"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   FontSize="{Binding Rozmiar}" 
-                   Foreground="{Binding Kolor}" />
+       
+        <TextBox Grid.Row="3" Grid.ColumnSpan="2" Margin="5"
+                 Text="{Binding Tekst, UpdateSourceTrigger=PropertyChanged}"
+                 HorizontalAlignment="Center" VerticalAlignment="Center"
+                 FontSize="{Binding Rozmiar}" 
+                 Foreground="{Binding Kolor}" />
     </Grid>
 </Window>
