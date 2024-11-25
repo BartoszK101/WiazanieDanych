@@ -6,10 +6,26 @@
         xmlns:local="clr-namespace:WiazanieDanychCwiczenia"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <StackPanel>
-            <Slider x:Name="rozmiarTekstu" Minimum="10" Value="15" Maximum="45"/>
-            <TextBlock FontSize="{Binding Path=Value, ElementName=rozmiarTekstu}">Testujemy wiązanie danych</TextBlock>
-        </StackPanel>
+    <Grid x:Name="gridProdukt">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Symbol:" Grid.Row="0" Grid.Column="0" Margin="5"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding Symbol}"/>
+        <Label Content="Nazwa:" Grid.Row="1" Grid.Column="0" Margin="5"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding Nazwa}"/>
+        <Label Content="Liczba sztuk:" Grid.Row="2" Grid.Column="0" Margin="5"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding LiczbaSztuk}"/>
+        <Label Content="Magazyn:" Grid.Row="3" Grid.Column="0" Margin="5"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="5" Text="{Binding Magazyn}"/>
+        <Button x:Name="btnPotwierdz" Grid.Row="4" Grid.Column="1" Margin="254,4,0,4" MinWidth="120" HorizontalAlignment="Left" Content="Potwierdź" Click="btnPotwierdz_Click"/>
     </Grid>
 </Window>
