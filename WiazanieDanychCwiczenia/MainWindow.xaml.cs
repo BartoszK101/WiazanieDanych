@@ -10,16 +10,17 @@ namespace WiazanieDanychCwiczenia
         private double _rozmiar;
         private string _tekst;
         private Brush _kolor;
+        private int _liczbaZnakow;
 
         public MainWindow()
         {
             InitializeComponent();
             DataContext = this;
 
-           
+            
             Rozmiar = 12;
             Kolor = Brushes.Black;
-            Tekst = "Kolejny test wiązania danych";
+            Tekst = "Testujemy właściwość StringFormat";
         }
 
         public double Rozmiar
@@ -38,7 +39,18 @@ namespace WiazanieDanychCwiczenia
             set
             {
                 _tekst = value;
+                LiczbaZnakow = _tekst?.Length ?? 0; 
                 OnPropertyChanged(nameof(Tekst));
+            }
+        }
+
+        public int LiczbaZnakow
+        {
+            get => _liczbaZnakow;
+            set
+            {
+                _liczbaZnakow = value;
+                OnPropertyChanged(nameof(LiczbaZnakow));
             }
         }
 
@@ -64,10 +76,7 @@ namespace WiazanieDanychCwiczenia
         {
             if (ComboKolor.SelectedItem is ComboBoxItem selectedItem)
             {
-                
                 string colorName = selectedItem.Content.ToString();
-
-                
                 Kolor = (Brush)new BrushConverter().ConvertFromString(colorName);
             }
         }
