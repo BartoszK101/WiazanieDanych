@@ -1,36 +1,75 @@
-﻿using System.Text;
+﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace WiazanieDanychCwiczenia
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
-        private Produkt p1 = null;
+        private double _rozmiar;
+        private string _tekst;
+        private Brush _kolor;
+
         public MainWindow()
         {
             InitializeComponent();
-            PrzygotujWiazanie();
+            DataContext = this;
+
+            
+            Rozmiar = 12;
+            Kolor = Brushes.Black;
+            Tekst = "Kolejny test wiązania danych";
         }
-        private void PrzygotujWiazanie()
+
+        public double Rozmiar
         {
-            p1 = new Produkt("DZ-10", "długopis żelowy", 132, "Katowice 1");
-            gridProdukt.DataContext = p1; }
+            get => _rozmiar;
+            set
+            {
+                _rozmiar = value;
+                OnPropertyChanged(nameof(Rozmiar));
+            }
         }
-        private void btnPotwierdz_Click(object sender, RoutedEventArgs e)
-        { 
-            string tekst = String.Format("{0}{1}{2}", "Wprowadzono dane:", 
-                Environment.NewLine, p1.ToString()); 
-            MessageBox.Show(tekst); 
+
+        public string Tekst
+        {
+            get => _tekst;
+            set
+            {
+                _tekst = value;
+                OnPropertyChanged(nameof(Tekst));
+            }
         }
+
+        public Brush Kolor
+        {
+            get => _kolor;
+            set
+            {
+                _kolor = value;
+                OnPropertyChanged(nameof(Kolor));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+       
+        private void ComboKolor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ComboKolor.SelectedItem is ComboBoxItem selectedItem)
+            {
+               
+                string colorName = selectedItem.Content.ToString();
+
+                
+                Kolor = (Brush)new BrushConverter().ConvertFromString(colorName);
+            }
+        }
+    }
 }

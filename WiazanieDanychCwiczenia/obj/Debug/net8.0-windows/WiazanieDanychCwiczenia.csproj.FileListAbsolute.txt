@@ -6,7 +6,6 @@ C:\Users\bkulesza\source\repos\WiazanieDanychCwiczenia\WiazanieDanychCwiczenia\b
 C:\Users\bkulesza\source\repos\WiazanieDanychCwiczenia\WiazanieDanychCwiczenia\obj\Debug\net8.0-windows\MainWindow.g.cs
 C:\Users\bkulesza\source\repos\WiazanieDanychCwiczenia\WiazanieDanychCwiczenia\obj\Debug\net8.0-windows\App.g.cs
 C:\Users\bkulesza\source\repos\WiazanieDanychCwiczenia\WiazanieDanychCwiczenia\obj\Debug\net8.0-windows\WiazanieDanychCwiczenia_MarkupCompile.cache
-C:\Users\bkulesza\source\repos\WiazanieDanychCwiczenia\WiazanieDanychCwiczenia\obj\Debug\net8.0-windows\WiazanieDanychCwiczenia_MarkupCompile.lref
 C:\Users\bkulesza\source\repos\WiazanieDanychCwiczenia\WiazanieDanychCwiczenia\obj\Debug\net8.0-windows\MainWindow.baml
 C:\Users\bkulesza\source\repos\WiazanieDanychCwiczenia\WiazanieDanychCwiczenia\obj\Debug\net8.0-windows\WiazanieDanychCwiczenia.g.resources
 C:\Users\bkulesza\source\repos\WiazanieDanychCwiczenia\WiazanieDanychCwiczenia\obj\Debug\net8.0-windows\WiazanieDanychCwiczenia.GeneratedMSBuildEditorConfig.editorconfig

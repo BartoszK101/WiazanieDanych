@@ -1,31 +1,45 @@
 ﻿<Window x:Class="WiazanieDanychCwiczenia.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WiazanieDanychCwiczenia"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid x:Name="gridProdukt">
+        Title="Test wiązania danych 2" Height="450" Width="800">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Label Content="Symbol:" Grid.Row="0" Grid.Column="0" Margin="5"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Margin="5" Text="{Binding Symbol}"/>
-        <Label Content="Nazwa:" Grid.Row="1" Grid.Column="0" Margin="5"/>
-        <TextBox Grid.Row="1" Grid.Column="1" Margin="5" Text="{Binding Nazwa}"/>
-        <Label Content="Liczba sztuk:" Grid.Row="2" Grid.Column="0" Margin="5"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Margin="5" Text="{Binding LiczbaSztuk}"/>
-        <Label Content="Magazyn:" Grid.Row="3" Grid.Column="0" Margin="5"/>
-        <TextBox Grid.Row="3" Grid.Column="1" Margin="5" Text="{Binding Magazyn}"/>
-        <Button x:Name="btnPotwierdz" Grid.Row="4" Grid.Column="1" Margin="254,4,0,4" MinWidth="120" HorizontalAlignment="Left" Content="Potwierdź" Click="btnPotwierdz_Click"/>
+
+        
+        <Label Content="Rozmiar:" Grid.Row="0" Grid.Column="0" Margin="5" />
+        <Slider x:Name="SliderRozmiar" Grid.Row="0" Grid.Column="1" Margin="5"
+                Minimum="10" Maximum="50" Value="{Binding Rozmiar}" 
+                TickFrequency="2" IsSnapToTickEnabled="True" />
+
+        
+        <Label Content="Kolor:" Grid.Row="1" Grid.Column="0" Margin="5" />
+        <ComboBox x:Name="ComboKolor" Grid.Row="1" Grid.Column="1" Margin="5"
+                  SelectionChanged="ComboKolor_SelectionChanged" Width="120">
+            <ComboBoxItem Content="Black" />
+            <ComboBoxItem Content="Red" />
+            <ComboBoxItem Content="Green" />
+            <ComboBoxItem Content="Blue" />
+        </ComboBox>
+
+        
+        <Label Content="Tekst:" Grid.Row="2" Grid.Column="0" Margin="5" />
+        <TextBox x:Name="TextTekst" Grid.Row="2" Grid.Column="1" Margin="5"
+                 Text="{Binding Tekst}" />
+
+        
+        <TextBlock Grid.Row="3" Grid.ColumnSpan="2" Margin="5" Text="{Binding Tekst}"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   FontSize="{Binding Rozmiar}" 
+                   Foreground="{Binding Kolor}" />
     </Grid>
 </Window>
